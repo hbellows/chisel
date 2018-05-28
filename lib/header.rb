@@ -1,8 +1,4 @@
-class Chisel
-
-  def initialize
-
-  end
+class Header
 
   def header_h1(input)
 # require "pry"; binding.pry
@@ -29,4 +25,5 @@ class Chisel
     new_input = input.gsub('##### ', '<h5>')
     new_input.insert(-1, '</h5>')
   end
+
 end
