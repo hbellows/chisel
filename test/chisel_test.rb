@@ -5,7 +5,14 @@ require './lib/chisel'
 
 class ChiselTest < Minitest::Test
 
-  
+  def test_it_can_translate_to_h1_header
+    chisel = Chisel.new
+    input = "# This is an h1 header."
+
+    result = "<h1>This is an h1 header.</h1>"
+
+    assert_equal result, chisel.header.header_h4(input)
+  end
 end
 # def test_it_can_translate_to_h2_header
 #   chisel = Chisel.new
