@@ -10,31 +10,16 @@ class ChiselTest < Minitest::Test
 
     input = '# This is an h1 header.'
 
-    result = '<h1>This is an h1 header.</h1>'tes
+    result = '<h1>This is an h1 header.</h1>'
 
     assert_equal result, chisel.header.header_h1(input)
   end
 
+
 end
-
-
-
-# def test_it_can_translate_to_h1_header
-#   chisel = Chisel.new
-#   input = '# This is an h1 header.'
-#
-#   result = '<h1>This is an h1 header.</h1>'
-#
-#   assert_equal result, chisel.header_h1(input)
-# end
-#
 # def test_it_can_translate_to_h2_header
 #   chisel = Chisel.new
-#   input = '## This is an h2 header.'
 #
-#   result = '<h2>This is an h2 header.</h2>'
-#
-#   assert_equal result, chisel.header_h2(input)
 # end
 #
 # def test_it_can_translate_to_h3_header
