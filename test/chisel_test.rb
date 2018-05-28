@@ -11,7 +11,7 @@ class ChiselTest < Minitest::Test
 
     result = "<h1>This is an h1 header.</h1>"
 
-    assert_equal result, chisel.header.header_h4(input)
+    assert_equal result, chisel.header.header_h1(input)
   end
 
   def test_it_can_translate_paragraph_to_HTML_syntax
@@ -19,7 +19,7 @@ class ChiselTest < Minitest::Test
     input = "Translate me to an HTML paragraph.\n"
 
     result = "<p>Translate me to an HTML paragraph.</p>"
-    
+
     assert_equal result, chisel.paragraph.paragraph_p(input)
   end
 end
