@@ -13,35 +13,13 @@ class ChiselTest < Minitest::Test
 
     assert_equal result, chisel.header.header_h4(input)
   end
+
+  def test_it_can_translate_paragraph_to_HTML_syntax
+    chisel = Chisel.new
+    input = "Translate me to an HTML paragraph.\n"
+
+    result = "<p>Translate me to an HTML paragraph.</p>"
+    
+    assert_equal result, chisel.paragraph.paragraph_p(input)
+  end
 end
-# def test_it_can_translate_to_h2_header
-#   chisel = Chisel.new
-#
-# end
-#
-# def test_it_can_translate_to_h3_header
-#   chisel = Chisel.new
-#   input = '### This is an h3 header.'
-#
-#   result = '<h3>This is an h3 header.</h3>'
-#
-#   assert_equal result, chisel.header_h3(input)
-# end
-#
-# def test_it_can_translate_to_h4_header
-#   chisel = Chisel.new
-#   input = '#### This is an h4 header.'
-#
-#   result = '<h4>This is an h4 header.</h4>'
-#
-#   assert_equal result, chisel.header_h4(input)
-# end
-#
-# def test_it_can_translate_to_h5_header
-#   chisel = Chisel.new
-#   input = '##### This is an h5 header.'
-#
-#   result = '<h5>This is an h5 header.</h5>'
-#
-#   assert_equal result, chisel.header_h5(input)
-# end

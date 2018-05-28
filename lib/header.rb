@@ -1,7 +1,6 @@
 class Header
 
   def header_h1(input)
-# require "pry"; binding.pry
     new_input = input.gsub('# ', '<h1>')
     new_input.insert(-1, '</h1>')
   end

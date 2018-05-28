@@ -4,8 +4,5 @@ class Paragraph
     new_input = input.strip
     new_input.insert(0, '<p>')
     new_input.insert(-1, '</p>')
-
   end
-
-
 end
