@@ -4,7 +4,7 @@ require './lib/header'
 
 
 class HeaderTest < Minitest::Test
-  def test_it_can_translate_to_h1_header
+  def test_it_can_make_new_h1_header
     header = Header.new
     input = '# This is an h1 header.'
 
@@ -13,7 +13,7 @@ class HeaderTest < Minitest::Test
     assert_equal result, header.header_h1(input)
   end
 
-  def test_it_can_translate_to_h2_header
+  def test_it_can_make_new_h2_header
     header = Header.new
     input = '## This is an h2 header.'
 
@@ -22,7 +22,7 @@ class HeaderTest < Minitest::Test
     assert_equal result, header.header_h2(input)
   end
 
-  def test_it_can_translate_to_h3_header
+  def test_it_can_make_new_h3_header
     header = Header.new
     input = '### This is an h3 header.'
 
@@ -31,7 +31,7 @@ class HeaderTest < Minitest::Test
     assert_equal result, header.header_h3(input)
   end
 
-  def test_it_can_translate_to_h4_header
+  def test_it_can_make_new_h4_header
     header = Header.new
     input = '#### This is an h4 header.'
 
@@ -40,7 +40,7 @@ class HeaderTest < Minitest::Test
     assert_equal result, header.header_h4(input)
   end
 
-  def test_it_can_translate_to_h5_header
+  def test_it_can_make_new_h5_header
     header = Header.new
     input = '##### This is an h5 header.'
 
