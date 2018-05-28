@@ -1,28 +1,17 @@
 class Header
 
-  def header_h1(input)
-    new_input = input.gsub('# ', '<h1>')
-    new_input.insert(-1, '</h1>')
+  def find_headers(input)
+    if input.include?('#')
+      format_header(input)
+    else
+      input
+    end
   end
 
-  def header_h2(input)
-    new_input = input.gsub('## ', '<h2>')
-    new_input.insert(-1, '</h2>')
+  def format_header(input)
+    octo_count = input.count('#')
+    "<h#{octo_count}>" + input.delete('#').lstrip + "</h#{octo_count}>"
   end
 
-  def header_h3(input)
-    new_input = input.gsub('### ', '<h3>')
-    new_input.insert(-1, '</h3>')
-  end
-
-  def header_h4(input)
-    new_input = input.gsub('#### ', '<h4>')
-    new_input.insert(-1, '</h4>')
-  end
-
-  def header_h5(input)
-    new_input = input.gsub('##### ', '<h5>')
-    new_input.insert(-1, '</h5>')
-  end
 
 end
