@@ -1,7 +1,8 @@
 
 class FileRead
 
-    markdown_file = File.readlines('markdown_file.md')
-    require "pry"; binding.pry
-
+    def markdown_file
+      File.readlines('markdown_file.md')
+    end
+    
 end
