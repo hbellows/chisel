@@ -8,7 +8,7 @@ class ChiselTest < Minitest::Test
     chisel = Chisel.new
     input = '# This is an h1 header.'
 
-    result = '<h1>This is an h1 header.</h1>'
+    result = '<h1>This is an h1 header.</h1>'tes
 
     assert_equal result, chisel.header_h1(input)
   end
@@ -46,6 +46,6 @@ class ChiselTest < Minitest::Test
 
     result = '<h5>This is an h5 header.</h5>'
 
-    assert_equal result, chisel.header_h5(input)    
+    assert_equal result, chisel.header_h5(input)
   end
 end
