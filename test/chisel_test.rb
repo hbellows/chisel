@@ -23,6 +23,8 @@ class ChiselTest < Minitest::Test
     assert_equal result, chisel.header_h2(input)
   end
 
+
+
   def test_it_can_translate_to_h3_header
     chisel = Chisel.new
 
@@ -50,6 +52,7 @@ class ChiselTest < Minitest::Test
 
     assert_equal result, chisel.header_h5(input)
   end
+
 end
 # def test_it_can_translate_to_h2_header
 #   chisel = Chisel.new
