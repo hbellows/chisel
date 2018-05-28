@@ -12,6 +12,4 @@ class Header
     octo_count = input.count('#')
     "<h#{octo_count}>" + input.delete('#').lstrip + "</h#{octo_count}>"
   end
-
-
 end
