@@ -1,25 +1,12 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/chisel'
-
+require './lib/file_read'
 
 class ChiselTest < Minitest::Test
 
-  def test_it_can_translate_to_h1_header
-    chisel = Chisel.new
-    input = "# This is an h1 header."
+  def test_a_file_can_be_read
+    file = FileRead.new('I\'m a file')
 
-    result = "<h1>This is an h1 header.</h1>"
-
-    assert_equal result, chisel.header.header_h1(input)
-  end
-
-  def test_it_can_translate_paragraph_to_HTML_syntax
-    chisel = Chisel.new
-    input = "Translate me to an HTML paragraph.\n"
-
-    result = "<p>Translate me to an HTML paragraph.</p>"
-
-    assert_equal result, chisel.paragraph.paragraph_p(input)
+    assert_equal 'I\'m a file', file
   end
 end
