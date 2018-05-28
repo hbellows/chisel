@@ -6,8 +6,6 @@ class Chisel
   def initialize
     @header = Header.new
   end
-
-
 end
 
 # def header_h1(input)
