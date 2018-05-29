@@ -4,8 +4,8 @@ class Chisel
 
       file = ARGV[0]
       input_file = File.readlines(file)
-      # chisel = Chisel.new
-
+      markdown_converter = MarkdownConverter.new
+      m = markdown_converter.convert(my_input)
 
 end
 
