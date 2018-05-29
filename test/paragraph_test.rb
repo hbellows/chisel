@@ -13,6 +13,14 @@ class ParagraphTest < Minitest::Test
     assert_equal result, paragraph.find_paragraph(input)
   end
 
+  def test_it_can_detect_no_paragraph_exists
+    paragraph = Paragraph.new
+    input = "### The Madness from the Sea"
+
+    result = "### The Madness from the Sea"
+    assert_equal result, paragraph.find_paragraph(input)
+  end
+
   def test_it_can_make_new_html_paragraph
     paragraph = Paragraph.new
     input = "Into the peace and safety of a new dark age.\n"
