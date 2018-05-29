@@ -2,7 +2,8 @@ require 'redcarpet'
 
 renderer = Redcarpet::Render::HTML.new
 engine = Redcarpet::Markdown.new(renderer)
-markdown_source = '# This is an H1 header.
+markdown_source =
+'# This is an H1 header.
 
 ## This is an H2 header.
 
