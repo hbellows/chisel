@@ -31,4 +31,8 @@ class MarkdownConverterTest < Minitest::Test
     result = "<h2>I'm a header.</h2>\n<p>I'm a paragraph.</p>\n"
     assert_equal result, markdown_converter.convert(input)
   end
+
+  def test_a_para
+
+  end
 end
