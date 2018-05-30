@@ -12,10 +12,13 @@ class Formatter
   def format_ampersand(input)
     if input.include?('&')
       input.gsub('&', '&amp;')
+    end
   end
 
-  def format_word_emp
-
+  def format_word_emp(input)
+    input.map do |word|
+      if input.start_with?('*')
+        word[0]
   end
 
   def format_word_strong
