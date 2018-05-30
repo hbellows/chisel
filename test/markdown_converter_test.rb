@@ -10,7 +10,7 @@ class MarkdownConverterTest < Minitest::Test
 
     result = "<h1>This is an h1 header.</h1>\n"
 
-    assert_equal result, markdown_converter.header.format_header(input)
+    assert_equal result, markdown_converter.formatter.format_header(input)
   end
 
   def test_it_can_translate_paragraph_to_HTML_syntax
@@ -20,7 +20,7 @@ class MarkdownConverterTest < Minitest::Test
 
     result = "<p>Translate me to an HTML paragraph.</p>\n"
 
-    assert_equal result, markdown_converter.paragraph.format_paragraph(input)
+    assert_equal result, markdown_converter.formatter.format_paragraph(input)
   end
 
   def test_it_can_translate_a_header_and_paragraph

@@ -1,3 +1,6 @@
+
+MOVED TO FORMATTER_TEST CLASS
+
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/header'

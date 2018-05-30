@@ -2,21 +2,19 @@ require './lib/header'
 require './lib/paragraph'
 
 class MarkdownConverter
-  attr_reader :header, :paragraph
+  attr_reader :formatter
 
   def initialize
-    @header = Header.new
-    @paragraph = Paragraph.new
-
+    @formatter = Formatter.new
   end
 
   def convert(input)
     x = input.map do |string|
       string = string.strip
       if string.include?('#')
-        header.format_header(string)
+        formatter.format_header(string)
       else
-        paragraph.format_paragraph(string)
+        formatter.format_paragraph(string)
       end
     end.join
   end
