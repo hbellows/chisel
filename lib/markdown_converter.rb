@@ -9,7 +9,7 @@ class MarkdownConverter
   end
 
   def convert(input)
-    x = input.map do |string|
+    input.map do |string|
       string = string.strip
       if string.include?('#')
         formatter.format_header(string)
