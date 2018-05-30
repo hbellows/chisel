@@ -11,3 +11,37 @@ file_write: Writes HTML files translated from markdown
 Header class file sets up the find header and header formatter methods
 
 Paragraph class file sets up the find paragraph and paragraph formatter methods
+
+blockquotes: <blockquote><p>blah blah blah</p></blockquote>
+emphasis: <em>blah</em>
+strong: <strong>blah blah</strong>
+ampersand: &amp;
+Double quote: &quot;
+
+code block: 
+    <p>This is a normal paragraph:</p>
+
+    <pre><code>This is a code block.
+    </code></pre>
+
+**unordered list:**
+    <p>
+      My favorite cuisines are:
+    </p>
+
+    <ul>
+      <li>Sushi</li>
+      <li>Barbeque</li>
+      <li>Mexican</li>
+    </ul>
+
+**ordered list:**
+    <p>
+      My favorite cuisines are:
+    </p>
+
+    <ol>
+      <li>Sushi</li>
+      <li>Barbeque</li>
+      <li>Mexican</li>
+    </ol>
