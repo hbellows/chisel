@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require './lib/formatter'
 
 class FormatterTest < Minitest::Test
 
@@ -8,8 +9,8 @@ class FormatterTest < Minitest::Test
     input_1 = "# This is an h1 header."
     input_2 = "### This is an h3 header."
 
-    result_1 = "<h1>This is an h1 header.</h1>"
-    result_2 = "<h3>This is an h3 header.</h3>"
+    result_1 = "<h1>This is an h1 header.</h1>\n"
+    result_2 = "<h3>This is an h3 header.</h3>\n"
 
     assert_equal result_1, formatter.format_header(input_1)
     assert_equal result_2, formatter.format_header(input_2)
@@ -24,21 +25,32 @@ class FormatterTest < Minitest::Test
     assert_equal result, formatter.format_paragraph(input)
   end
 
+  def test_it_formats_ampersands
+    # skip
+    formatter = Formatter.new
+    input = "This and that & that and this."
+
+    result = "This and that &amp; that and this."
+    assert_equal result, formatter.format_ampersand(input)
+  end
+
   def test_it_formats_emphasized_words
+    skip
     formatter = Formatter.new
     input = "Into the peace and safety of a *new dark age*.\n"
 
     result = "<p>Into the peace and safety of a <em>new dark age</em>.</p>\n"
     assert_equal result, formatter.format_word_emp(input)
+  end
 
   def test_it_formats_stronged_words
+    skip
     formatter = Formatter.new
     input = "Into the **peace & safety** of a new dark age.\n"
 
     result = "<p>Into the <strong>peace &amp; safety</strong> of a new dark age.</p>\n"
     assert_equal result, formatter.format_word_str(input)
   end
-
 end
 
 
