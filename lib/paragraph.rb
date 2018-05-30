@@ -1,3 +1,6 @@
+
+MOVED TO FORMATTER CLASS
+
 class Paragraph
 
   def format_paragraph(input)
