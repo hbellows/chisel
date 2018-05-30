@@ -3,6 +3,13 @@ class Paragraph
   def format_paragraph(input)
     "<p>" + input.strip + "</p>\n"
   end
+
+  def format_word_amp(input)
+    if input.include?('&')
+      input.gsub('&', '&amp;')
+
+
+  end
 end
 
 #SECOND REFACTOR:
