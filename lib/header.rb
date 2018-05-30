@@ -1,3 +1,6 @@
+
+MOVED TO FORMATTER CLASS
+
 class Header
 
   def format_header(input)
