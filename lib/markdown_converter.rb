@@ -9,7 +9,6 @@ class MarkdownConverter
 
   def convert(input)
     paragraph = formatter.format_body(input)
-    # paragraph = formatter.format_paragraph (header)
     ampersand = formatter.format_ampersand(paragraph)
     quote_marks = formatter.format_quotation_marks(ampersand)
     strong = formatter.format_word_strong(quote_marks)
