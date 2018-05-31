@@ -3,12 +3,6 @@ require 'minitest/pride'
 require './lib/formatter'
 
 class FormatterTest < Minitest::Test
-  # attr_reader :my_input
-  #
-  # def setup
-  #   @my_input = File.readlines('my_input.md')
-  # end
-  # require "pry"; binding.pry
 
   def test_it_can_format_headers
     # skip
