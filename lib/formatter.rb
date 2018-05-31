@@ -1,14 +1,14 @@
 class Formatter
 
-  def convert(input)
-    paragraph = format_body(input)
-    # header = format_header(input)
-    # paragraph = format_paragraph (header)
-    ampersand = format_ampersand(paragraph)
-    quote_marks = format_quotation_marks(ampersand)
-    strong = format_word_strong(quote_marks)
-    emphasis = format_word_emp(strong)
-  end
+  # def convert(input)
+  #   paragraph = format_body(input)
+  #   # header = format_header(input)
+  #   # paragraph = format_paragraph (header)
+  #   ampersand = format_ampersand(paragraph)
+  #   quote_marks = format_quotation_marks(ampersand)
+  #   strong = format_word_strong(quote_marks)
+  #   emphasis = format_word_emp(strong)
+  # end
 
   def format_body(input)
     input.map do |string|
