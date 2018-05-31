@@ -19,8 +19,8 @@ class FormatterTest < Minitest::Test
     result_1 = ["<h1>This is an h1 header.</h1>\n"]
     result_2 = ["<h3>This is an h3 header.</h3>\n"]
 
-    assert_equal result_1, formatter.format_header(input_1)
-    assert_equal result_2, formatter.format_header(input_2)
+    assert_equal result_1, formatter.format_body(input_1)
+    assert_equal result_2, formatter.format_body(input_2)
   end
 
   def test_it_can_make_new_html_paragraph
@@ -30,7 +30,7 @@ class FormatterTest < Minitest::Test
 
     result = ["<p>Into the peace and safety of a new dark age.</p>\n"]
 
-    assert_equal result, formatter.format_paragraph(input)
+    assert_equal result, formatter.format_body(input)
   end
 
   def test_it_formats_ampersands
@@ -72,9 +72,9 @@ class FormatterTest < Minitest::Test
   def test_it_can_format
     # skip
     formatter = Formatter.new
-    input = ["### The Horror in Clay", "Into the **peace & safety** of a new dark age.\n"]
+    input = ["### The Horror in Clay\n", "We shall either go mad from the revelation or flee from the deadly light.  Into the **peace & safety** of a new dark age.\n"]
 
-    result = ["<h3>The Horror in Clay</h3>", "<p>Into the <strong>peace &amp; safety</strong> of a new dark age.\n"]
+    result = ["<h3>The Horror in Clay</h3>\n", "<p>We shall either go mad from the revelation or flee from the deadly light. Into the <strong>peace &amp; safety</strong> of a new dark age.</p>\n"]
 
     assert_equal result, formatter.convert(input)
   end
