@@ -68,49 +68,4 @@ class FormatterTest < Minitest::Test
     result = ["Into the <strong>peace and safety</strong> of a new dark age.\n"]
     assert_equal result, formatter.format_word_strong(input)
   end
-
-  def test_it_can_format
-    # skip
-    formatter = Formatter.new
-    input = ["### The Horror in Clay\n", "We shall either go mad from the revelation or flee from the deadly light.  Into the **peace & safety** of a new dark age.\n"]
-
-    result = ["<h3>The Horror in Clay</h3>\n", "<p>We shall either go mad from the revelation or flee from the deadly light. Into the <strong>peace &amp; safety</strong> of a new dark age.</p>\n"]
-
-    assert_equal result, formatter.convert(input)
-  end
-
-  # def test_case_name
-  #   form = Formatter.new
-  #   file = File.readlines('my_input.md')
-  #   x = form.formatter(file)
-  #   require "pry"; binding.pry
-  # end
 end
-
-
-
-#Find header and find paragraph tests:
-# def test_it_can_detect_headers
-#   header = Header.new
-#   input = '### The Horror in Clay.'
-#
-#   result = '<h3>The Horror in Clay.</h3>'
-#   assert_equal result, header.find_headers(input)
-# end
-#
-# def test_it_can_detect_no_headers
-#   header = Header.new
-#   input = "This is how it all ends.\n"
-#
-#   result = "This is how it all ends.\n"
-#   assert_equal result, header.find_headers(input)
-# end
-
-# def test_it_can_detect_a_paragraph
-#   paragraph = Paragraph.new
-#   input = "This is my paragraph, yo.\n"
-#
-#   result = "<p>This is my paragraph, yo.</p>"
-#
-#   assert_equal result, paragraph.find_paragraph(input)
-# end
