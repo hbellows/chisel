@@ -8,22 +8,14 @@ class MarkdownConverter
   end
 
   def convert(input)
-    header = formatter.format_header(input)
-    paragraph = formatter.format_paragraph (header)
+    paragraph = formatter.format_body(input)
+    # paragraph = formatter.format_paragraph (header)
     ampersand = formatter.format_ampersand(paragraph)
-    quote_marks = formatter.format_quotation_marks(strong)
-    emphasis = formatter.format_word_emp(ampersand)
-    strong = formatter.format_word_strong(emphasis)
+    quote_marks = formatter.format_quotation_marks(ampersand)
+    strong = formatter.format_word_strong(quote_marks)
+    emphasis = formatter.format_word_emp(strong)
+    emphasis.join(' ')
   end
 
-  # def convert(input)
-  #   input.map do |string|
-  #     string = string.strip
-  #     if string.include?('#')
-  #       formatter.format_header(string)
-  #     else
-  #       formatter.format_paragraph(string)
-  #     end
-  #   end.join
-  # end
+
 end
