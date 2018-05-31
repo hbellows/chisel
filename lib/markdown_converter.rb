@@ -13,7 +13,7 @@ class MarkdownConverter
     ampersand = formatter.format_ampersand(paragraph)
     quote_marks = formatter.format_quotation_marks(strong)
     emphasis = formatter.format_word_emp(ampersand)
-    strong = formatter.format_word_str(emphasis)
+    strong = formatter.format_word_strong(emphasis)
   end
 
   # def convert(input)
