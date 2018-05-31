@@ -61,13 +61,30 @@ class FormatterTest < Minitest::Test
   end
 
   def test_it_formats_stronged_words
-    skip
+    # skip
     formatter = Formatter.new
-    input = ["Into the **peace & safety** of a new dark age.\n"]
+    input = ["Into the **peace and safety** of a new dark age.\n"]
 
-    result = ["Into the <strong>peace &amp; safety</strong> of a new dark age.\n"]
+    result = ["Into the <strong>peace and safety</strong> of a new dark age.\n"]
     assert_equal result, formatter.format_word_strong(input)
   end
+
+  def test_it_can_format
+    # skip
+    formatter = Formatter.new
+    input = ["### The Horror in Clay", "Into the **peace & safety** of a new dark age.\n"]
+
+    result = ["<h3>The Horror in Clay</h3>", "<p>Into the <strong>peace &amp; safety</strong> of a new dark age.\n"]
+
+    assert_equal result, formatter.convert(input)
+  end
+
+  # def test_case_name
+  #   form = Formatter.new
+  #   file = File.readlines('my_input.md')
+  #   x = form.formatter(file)
+  #   require "pry"; binding.pry
+  # end
 end
 
 

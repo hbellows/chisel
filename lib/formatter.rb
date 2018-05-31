@@ -1,12 +1,12 @@
 class Formatter
 
-  def formatter(input)
+  def convert(input)
     header = format_header(input)
     paragraph = format_paragraph (header)
     ampersand = format_ampersand(paragraph)
-    emphasis = format_word_emp(ampersand)
-    strong = format_word_str(emphasis)
-    quote_marks = format_quotation_marks(strong)
+    quote_marks = format_quotation_marks(ampersand)
+    emphasis = format_word_emp(quote_marks)
+    strong = format_word_strong(emphasis)
   end
 
   def format_header(input)
@@ -24,6 +24,7 @@ class Formatter
     paragraph = header.map do |string|
     "<p>" + string.strip + "</p>\n"
     end
+    # if starts and ends with (" ) / ( ")
   end
 
   def format_ampersand(paragraph)
@@ -53,22 +54,34 @@ class Formatter
   end
 
   def find_emphasis(nested)
-    require "pry"; binding.pry
     nested.split.map do |word|
       if word.start_with?('*')
         word.sub('*', '<em>')
-      elsif word.end_with?('*')
+      elsif word.include?('*')
         word.sub('*', '</em>')
       else
         word
       end
+    end.join(' ') + "\n"
+  end
+
+  def format_word_strong(emphasis)
+    strong = emphasis.map do |nested|
+      find_strong(nested)
     end
   end
 
-  def format_word_strong
-
+  def find_strong(nested)
+    nested.split.map do |word|
+      if word.start_with?('**')
+        word.sub('**', '<strong>')
+      elsif word.include?('**')
+        word.sub('**', '</strong>')
+      else
+        word
+      end
+    end.join(' ') + "\n"
   end
-
 
   def format_list_unordered
 
