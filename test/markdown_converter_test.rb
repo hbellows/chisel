@@ -4,35 +4,19 @@ require './lib/markdown_converter'
 
 class MarkdownConverterTest < Minitest::Test
 
-  def test_it_can_translate_to_h1_header
+  def test_it_converts_markdown_to_HTML
     markdown_converter = MarkdownConverter.new
-    input = "# This is an h1 header.\n"
+    # input = File.readlines('my_input.md')
+    input = ["# My Life in Desserts\n",
+ "\n",
+ "## Chapter 1: The Beginning\n",
+ "\n",
+ "\"You just *have* to try the cheesecake,\" he said. \"Ever since it appeared in **Food & Wine** this place has been packed every night.\"\n"]
 
-    result = "<h1>This is an h1 header.</h1>\n"
+    result = "<h1>My Life in Desserts</h1>\n <p></p>\n <h2>Chapter 1: The Beginning</h2>\n <p></p>\n <p>&quot;You just <em>have</em> to try the cheesecake,&quot; he said. &quot;Ever since it appeared in <strong>Food &amp; Wine</strong> this place has been packed every night.&quot;</p>\n"
 
-    assert_equal result, markdown_converter.formatter.format_header(input)
-  end
+    actual = markdown_converter.convert(input)
 
-  def test_it_can_translate_paragraph_to_HTML_syntax
-    # skip
-    markdown_converter = MarkdownConverter.new
-    input = "Translate me to an HTML paragraph.\n"
-
-    result = "<p>Translate me to an HTML paragraph.</p>\n"
-
-    assert_equal result, markdown_converter.formatter.format_paragraph(input)
-  end
-
-  def test_it_can_translate_a_header_and_paragraph
-    # skip
-    markdown_converter = MarkdownConverter.new
-    input = ["## I'm a header.\n\n", "I'm a paragraph.\n\n"]
-
-    result = "<h2>I'm a header.</h2>\n<p>I'm a paragraph.</p>\n"
-    assert_equal result, markdown_converter.convert(input)
-  end
-
-  def test_a_para
-
+    assert_equal result, actual
   end
 end

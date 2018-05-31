@@ -19,8 +19,8 @@ class FormatterTest < Minitest::Test
     result_1 = ["<h1>This is an h1 header.</h1>\n"]
     result_2 = ["<h3>This is an h3 header.</h3>\n"]
 
-    assert_equal result_1, formatter.format_header(input_1)
-    assert_equal result_2, formatter.format_header(input_2)
+    assert_equal result_1, formatter.format_body(input_1)
+    assert_equal result_2, formatter.format_body(input_2)
   end
 
   def test_it_can_make_new_html_paragraph
@@ -30,7 +30,7 @@ class FormatterTest < Minitest::Test
 
     result = ["<p>Into the peace and safety of a new dark age.</p>\n"]
 
-    assert_equal result, formatter.format_paragraph(input)
+    assert_equal result, formatter.format_body(input)
   end
 
   def test_it_formats_ampersands
@@ -68,49 +68,4 @@ class FormatterTest < Minitest::Test
     result = ["Into the <strong>peace and safety</strong> of a new dark age.\n"]
     assert_equal result, formatter.format_word_strong(input)
   end
-
-  def test_it_can_format
-    # skip
-    formatter = Formatter.new
-    input = ["### The Horror in Clay", "Into the **peace & safety** of a new dark age.\n"]
-
-    result = ["<h3>The Horror in Clay</h3>", "<p>Into the <strong>peace &amp; safety</strong> of a new dark age.\n"]
-
-    assert_equal result, formatter.convert(input)
-  end
-
-  # def test_case_name
-  #   form = Formatter.new
-  #   file = File.readlines('my_input.md')
-  #   x = form.formatter(file)
-  #   require "pry"; binding.pry
-  # end
 end
-
-
-
-#Find header and find paragraph tests:
-# def test_it_can_detect_headers
-#   header = Header.new
-#   input = '### The Horror in Clay.'
-#
-#   result = '<h3>The Horror in Clay.</h3>'
-#   assert_equal result, header.find_headers(input)
-# end
-#
-# def test_it_can_detect_no_headers
-#   header = Header.new
-#   input = "This is how it all ends.\n"
-#
-#   result = "This is how it all ends.\n"
-#   assert_equal result, header.find_headers(input)
-# end
-
-# def test_it_can_detect_a_paragraph
-#   paragraph = Paragraph.new
-#   input = "This is my paragraph, yo.\n"
-#
-#   result = "<p>This is my paragraph, yo.</p>"
-#
-#   assert_equal result, paragraph.find_paragraph(input)
-# end
