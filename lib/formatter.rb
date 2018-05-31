@@ -21,6 +21,7 @@ class Formatter
   end
 
   def format_paragraph(header)
+    #THIS NEEDS ENUM, MAYBE NEEDS TO MOVE TO END
     paragraph = header.map do |string|
     "<p>" + string.strip + "</p>\n"
     end
