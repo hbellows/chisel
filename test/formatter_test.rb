@@ -57,9 +57,9 @@ class FormatterTest < Minitest::Test
   def test_it_formats_stronged_words
     # skip
     formatter = Formatter.new
-    input = ["Into the **peace and safety** of a new dark age.\n"]
+    input = ["Into the **peace and safety** of a new dark **age**.\n"]
 
-    result = ["Into the <strong>peace and safety</strong> of a new dark age.\n"]
+    result = ["Into the <strong>peace and safety</strong> of a new dark <strong>age</strong>.\n"]
     assert_equal result, formatter.format_word_strong(input)
   end
 end
