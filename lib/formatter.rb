@@ -2,7 +2,8 @@ class Formatter
 
     def format_body(input)
     input.map do |string|
-      string = string.strip
+      # string =
+      # string.strip
       if string.include?('#')
         format_header(string)
       else
@@ -17,11 +18,17 @@ class Formatter
   end
 
   def format_paragraph(string)
-    paragraph = "<p>" + string.strip + "</p>\n"
+    # paragraph =
+    if string.start_with?("\n")
+      string
+    else
+      "<p>" + string.strip + "</p>\n"
+    end
   end
 
   def format_ampersand(paragraph)
-    ampersand = paragraph.map do |string|
+    # ampersand =
+    paragraph.map do |string|
       if string.include?('&')
         string.gsub('&', '&amp;')
       else
@@ -31,7 +38,8 @@ class Formatter
   end
 
   def format_quotation_marks(ampersand)
-    quote_marks = ampersand.map do |string|
+    # quote_marks =
+    ampersand.map do |string|
       if string.include?("\"")
         string.gsub("\"", '&quot;')
       else
@@ -41,17 +49,22 @@ class Formatter
   end
 
   def format_word_strong(quote_marks)
-    strong = quote_marks.map do |nested|
+    # strong =
+    quote_marks.map do |nested|
       find_strong(nested)
     end
   end
 
   def find_strong(nested)
     nested.split.map do |word|
-      if word.start_with?('**')
+      if word.start_with?('**') && word.end_with?('**.')
+      "<strong>" + word.delete('**.') + "</strong>."
+      elsif word.start_with?('**')
         word.sub('**', '<strong>')
       elsif word.include?('**')
+        # require "pry"; binding.pry
         word.sub('**', '</strong>')
+        # require "pry"; binding.pry
       else
         word
       end
@@ -59,15 +72,16 @@ class Formatter
   end
 
   def format_word_emp(strong)
-    emphasis = strong.map do |nested|
+    # emphasis =
+    strong.map do |nested|
       find_emphasis(nested)
     end
   end
 
   def find_emphasis(nested)
     nested.split.map do |word|
-      if word.start_with?('*') && word.end_with?('*')
-        "<em>" + word.delete('*') + "</em>"
+      if word.start_with?('*') && word.end_with?('*.')
+        "<em>" + word.delete('*.') + "</em>."
       elsif word.start_with?('*')
         # require "pry"; binding.pry
         word.sub('*', '<em>')
